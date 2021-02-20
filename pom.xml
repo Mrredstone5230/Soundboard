@@ -6,7 +6,7 @@
 
     <groupId>me.Mr_redstone5230</groupId>
     <artifactId>SoundBoard</artifactId>
-    <version>2.2</version>
+    <version>PREVIEW-1.0</version>
     <packaging>jar</packaging>
 
     <build>
@@ -31,6 +31,19 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
