@@ -173,7 +173,7 @@ public class LocalSoundModule extends UIModule{
 						System.err.println("Unable to hook output volume control!");
 					}
 					
-					primeDataLine.open(format);
+					/*primeDataLine.open(format);
 					primeDataLine.start();
 
 					if (primeDataLine.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
@@ -182,7 +182,7 @@ public class LocalSoundModule extends UIModule{
 						volumes.add(volume);
 					}else{
 						System.err.println("Unable to hook client-side output volume control.");
-					}
+					}*/
 
 					AudioInputStream audioStream =  AudioSystem.getAudioInputStream(format, AudioSystem.getAudioInputStream(file));//We open the file here, and convert to the required format.
 					
@@ -191,14 +191,14 @@ public class LocalSoundModule extends UIModule{
 					while((r=audioStream.read(buff))!=-1 && LocalSoundModule.this.playing){
 						scaleVolumes(volumes, volume);
 						sourceDataLine.write(buff, 0, r);//We're taking one input stream and copying it over to both the outgoing and the local speaker lines.
-						primeDataLine.write(buff, 0, r);
+						//primeDataLine.write(buff, 0, r);
 					}
 					
 					System.out.println("Finished playing");
 					sourceDataLine.drain();//Shut it all down.
 					sourceDataLine.close();
-					primeDataLine.drain();
-					primeDataLine.close();
+					//primeDataLine.drain();
+					//primeDataLine.close();
 					audioStream.close();
 					LocalSoundModule.this.playing = false;
 				}catch(Exception e){
