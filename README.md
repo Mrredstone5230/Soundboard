@@ -1,4 +1,7 @@
 # Soundboard
+
+YOU NEED TO MANUALLY CREATE THE ./Sounds FOLDER !!!
+
 Basic, lightweight Java soundboard implementation.
 
 Builds a visual Soundboard of all files listed in the subdirectory ./Sounds, which can be customized via the INI generated on launch.
